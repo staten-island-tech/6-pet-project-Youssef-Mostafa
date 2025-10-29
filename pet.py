@@ -21,13 +21,35 @@ import random
 
 
 class Pet:
-    def __init__ (self, name, happiness):
+    def __init__ (self, name, happiness, hunger, thirst, hygiene, sleep):
         self.name = name
         self.happiness = happiness
+        self.hunger = hunger
+        self.thirst = thirst
+        self.hygiene = hygiene
+        self.sleep = sleep
 
     def play(self, happiness):
         self.happiness += random.randint(1,6)
-        print (f"Khaby Lame Mechanism turns his hands with excitement. Happiness increased by {self.happiness}.")
-Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 0)
-Khaby_Lame_Mechanism.play(1)
+        self.hunger -= random.randint(1,6)
+        self.thirst -= random.randint(1,6)
+        self.hygiene -= random.randint(1,6)
+        self.sleep -= random.randint(1,6)
+        print (f"Khaby Lame Mechanism turns his hands with excitement. Happiness increased by {self.happiness - 15}. Hygiene, thirst, hunger, and sleep also decreased.")
+
+    def feed(self, hunger):
+        self.hunger += random.randint(1,6)
+        self.hygiene -= random.randint(1,6)
+        self.happiness += random.randint(1,2)
+        print (f"Khaby Lame Mechanism speeds up his hands with to shovel food in his mouth. Hunger increased by {self.hunger - 15}. Hygiene decreased and happiness increased slightly.")
+
+    def drink(self, thirst):
+        self.thirst += random.randint(1,6)
+        self.hunger -= random.randint(1,2)
+        self.happiness += random.randint(1,2)
+        print (f"Khaby Lame Mechanism uses his hands to quickly scoop and drink up the water in his bowl. Thirst increased by {self.thirst - 15}. Hunger decreased and ")
+
+
+Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 15, 15, 15, 15, 15)
+Khaby_Lame_Mechanism.drink(1)
 print(Khaby_Lame_Mechanism.__dict__)
