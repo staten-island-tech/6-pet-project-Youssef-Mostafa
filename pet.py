@@ -51,5 +51,5 @@ class Pet:
 
 
 Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 15, 15, 15, 15, 15)
-Khaby_Lame_Mechanism.drink(1)
+Khaby_Lame_Mechanism.play(1)
 print(Khaby_Lame_Mechanism.__dict__)
