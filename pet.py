@@ -15,6 +15,8 @@ print(Khaby_Lame_Mechanism.__dict__)
 Khaby_Lame_Mechanism.buy({"item": "Upraded Hands of Time", "attack": 61})   
 print(Khaby_Lame_Mechanism.__dict__)
  """
+
+
 #Personal Pet Project
 
 import random
