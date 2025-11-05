@@ -65,23 +65,34 @@ class Pet:
         self.thirst -= random.randint(1,3)
         print (f"Khaby Lame Mechanism rests his weary hands and heads to sleep. Sleep increased by {self.sleep - 50}.")
 
-
-
-
 Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 50, 50, 50, 50, 50, 0)
 
-choice = input("What would you like to do with your mechanism? 1) Play. 2) Feed. 3) Drink. 4) Bathe. 5) Rest.")
-if choice == "play" or choice == "1":
-    Khaby_Lame_Mechanism.play(1)
-if choice == "feed" or choice == "2":
-    Khaby_Lame_Mechanism.feed(1)
-if choice == "drink" or choice == "3":
-    Khaby_Lame_Mechanism.drink(1)
-if choice == "bathe" or choice == "4":
-    Khaby_Lame_Mechanism.bathe(1)
-if choice == "rest" or choice == "5":
-    Khaby_Lame_Mechanism.rest(1)
-else:
-    print("Please pick a valid choice, or else.")
-
-print(Khaby_Lame_Mechanism.__dict__)
+options = [{
+    "Play"},
+    {"Feed"},
+    {"Drink"},
+    {"Bathe"},
+    {"Rest"}]
+pet_state = "Not Dead"
+while pet_state == "Not Dead":
+    for index, item in enumerate(options, start = 1):
+        print(index, ":", item)
+    print(f"{len(options) + 1 } : View Mechanism Stats")
+    choice = input("What would you like to do with your mechanism? Or would you like to view your stats?")
+    if not choice.isdigit():
+        print("Please choose a valid choice with numbers, or else!")
+    elif choice == len(options) + 1:
+        choice = int(choice)
+        print(Khaby_Lame_Mechanism.__dict__)
+    elif choice == 1:
+        Khaby_Lame_Mechanism.play(1)
+    elif choice == 2:
+        Khaby_Lame_Mechanism.feed(1)
+    elif choice == 3:
+        Khaby_Lame_Mechanism.drink(1)
+    elif choice == 4:
+        Khaby_Lame_Mechanism.bathe(1)
+    elif choice == 5:
+        Khaby_Lame_Mechanism.rest(1)
+    else:
+        print("Please choose a valid choice with numbers, or else!")
