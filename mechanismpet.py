@@ -1,4 +1,4 @@
-#Examples
+# Examples
 
 """ class Hero:
     def __init__(self, name, money, inventory):
@@ -17,7 +17,7 @@ print(Khaby_Lame_Mechanism.__dict__)
  """
 
 
-#Personal Pet Project
+# Personal Pet Project
 
 import random
 
@@ -33,52 +33,52 @@ class Pet:
         self.sleep = sleep
         self.age = age
 
-    def play(self, happiness):
+    def play(self):
         self.happiness += random.randint(1,6)
         self.hunger -= random.randint(1,6)
         self.thirst -= random.randint(1,6)
         self.hygiene -= random.randint(1,6)
         self.sleep -= random.randint(1,6)
         self.age += 0.25
-        print (f"{Khaby_Lame_Mechanism.name} turns his hands with excitement. You throw him a ball and he runs to get it, getting himself a little dirty.")
+        print (f"{Khaby_Lame_Mechanism.name} turns his hands with excitement. You throw him a ball and he runs to get it, getting himself a little dirty. Age advanced by 1/4 of a day.")
 
-    def feed(self, hunger):
+    def feed(self):
         self.hunger += random.randint(1,6)
         self.hygiene -= random.randint(1,6)
         self.happiness += random.randint(1,2)
         self.age += 0.25
-        print (f"{Khaby_Lame_Mechanism.name} speeds up his hands with to shovel food in his mouth. Your mechanism is enjoying the food, but he is a very messy eater.")
+        print (f"{Khaby_Lame_Mechanism.name} speeds up his hands with to shovel food in his mouth. Your mechanism is enjoying the food, but he is a very messy eater. Age advanced by 1/4 of a day.")
 
-    def drink(self, thirst):
+    def drink(self):
         self.thirst += random.randint(1,6)
         self.hunger -= random.randint(1,2)
         self.happiness += random.randint(1,2)
         self.age += 0.25
-        print (f"{Khaby_Lame_Mechanism.name} uses his hands to quickly scoop and drink up the water in his bowl. He must have been really parched. He enjoyed the water you gave him.")
+        print (f"{Khaby_Lame_Mechanism.name} uses his hands to quickly scoop and drink up the water in his bowl. He must have been really parched. He enjoyed the water you gave him. Age advanced by 1/4 of a day.")
 
-    def bathe(self, hygiene):
+    def bathe(self):
         self.hygiene += random.randint(1,6)
         self.happiness -= random.randint(1,3)
         self.age += 0.25
-        print (f"{Khaby_Lame_Mechanism.name} jumps into the bath, turning his hands to stay above water. However, your mechanism hates baths and isn't very happy with you.")
+        print (f"{Khaby_Lame_Mechanism.name} jumps into the bath, turning his hands to stay above water. However, your mechanism hates baths and isn't very happy with you. Age advanced by 1/4 of a day.")
 
-    def rest(self, sleep):
+    def rest(self):
         self.sleep += random.randint(1,6)
         self.happiness += random.randint(1,2)
         self.hunger -= random.randint(1,3)
         self.thirst -= random.randint(1,3)
         self.age += 0.25
-        print (f"{Khaby_Lame_Mechanism.name} rests his weary hands and heads to sleep. He snores through the night, happily dreaming of food.")
+        print (f"{Khaby_Lame_Mechanism.name} rests his weary hands and heads to sleep. He snores through the night, happily dreaming of food. Age advanced by 1/4 of a day.")
 
 Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 50, 50, 50, 50, 50, 0)
-Khaby_Lame_Mechanism.name = input("You found a mechanism is a cardboard box and decide to take it home with you. What would you like to name your beautiful mechanism?")
+Khaby_Lame_Mechanism.name = input("You found a mechanism in a cardboard box and decide to take it home with you. What would you like to name your beautiful mechanism?")
 
-options = [{
-    "Play"},
-    {"Feed"},
-    {"Drink"},
-    {"Bathe"},
-    {"Rest"}]
+options = [
+    "Play",
+    "Feed",
+    "Drink",
+    "Bathe",
+    "Rest"]
 pet_state = "Not Dead"
 while pet_state == "Not Dead":
     for index, item in enumerate(options, start = 1):
@@ -90,47 +90,22 @@ while pet_state == "Not Dead":
     else:
         choice = int(choice)
         if choice == 1:
-            Khaby_Lame_Mechanism.play(1)
+            Khaby_Lame_Mechanism.play()
         elif choice == 2:
-            Khaby_Lame_Mechanism.feed(1)
+            Khaby_Lame_Mechanism.feed()
         elif choice == 3:
-            Khaby_Lame_Mechanism.drink(1)
+            Khaby_Lame_Mechanism.drink()
         elif choice == 4:
-            Khaby_Lame_Mechanism.bathe(1)
+            Khaby_Lame_Mechanism.bathe()
         elif choice == 5:
-            Khaby_Lame_Mechanism.rest(1)
+            Khaby_Lame_Mechanism.rest()
         elif choice == len(options) + 1:
             choice = int(choice)
             print(Khaby_Lame_Mechanism.__dict__)
         else:
             print("Please choose a valid choice with numbers that are displayed, or else!")
     
-    end_day_options = [{
-    "Quit"},
-    {"Rest"}]
-
-    for index, item in enumerate(options, start = 1):
-        print(index, ":", item)
-    print(f"{len(options) + 1 } : View Mechanism Stats")
-    choice = input(f"What would you like to do right now? Do you want to quit, rest to continue to the next day, or check {Khaby_Lame_Mechanism.name}'s stats?")
-    if not choice.isdigit():
-        print("Please choose a valid choice with numbers that are displayed, or else!")
-    
-
-    
-    if Khaby_Lame_Mechanism.age == 1:
-        print("The day is over and you are very tired now. Head to bed to start the next day.")
-    else:
-        choice = int(choice)
-        if choice == 1:
-            quit()
-        elif choice == 2:
-            print("It is now the next day.")
-        elif choice == len(options) + 1:
-            choice = int(choice)
-            print(Khaby_Lame_Mechanism.__dict__)
-        else:
-            print("Please choose a valid choice with numbers that are displayed, or else!")
+   
 
     if Khaby_Lame_Mechanism.happiness <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of boredom and loneliness because you didn't feel like playing with it. GAME OVER")
@@ -147,4 +122,3 @@ while pet_state == "Not Dead":
     elif Khaby_Lame_Mechanism.sleep <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of insomnia and sleep deprivation because you would tuck it in at bedtime. Your mechanism couldn't sleep because you weren't there! GAME OVER")
         quit()
-
