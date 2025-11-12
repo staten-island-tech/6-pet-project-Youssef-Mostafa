@@ -12,7 +12,7 @@ Khaby_Lame_Mechanism = Hero("Khaby_Lame_Mechanism", 500, ["Hands of Fate"])
 
 print(Khaby_Lame_Mechanism.__dict__)
 
-Khaby_Lame_Mechanism.buy({"item": "Upraded Hands of Time", "attack": 61})   
+Khaby_Lame_Mechanism.buy({"item": "Upgraded Hands of Time", "attack": 61})   
 print(Khaby_Lame_Mechanism.__dict__)
  """
 
@@ -24,7 +24,7 @@ import random
 
 
 class Pet:
-    def __init__ (self, name, happiness, hunger, thirst, hygiene, sleep, age):
+    def __init__ (self, name, happiness, hunger, thirst, hygiene, sleep, age, money):
         self.name = name
         self.happiness = happiness
         self.hunger = hunger
@@ -32,6 +32,7 @@ class Pet:
         self.hygiene = hygiene
         self.sleep = sleep
         self.age = age
+        self.money = money
 
     def play(self):
         self.happiness += random.randint(1,6)
@@ -69,8 +70,36 @@ class Pet:
         self.thirst -= random.randint(1,3)
         self.age += 0.25
         print (f"{Khaby_Lame_Mechanism.name} rests his weary hands and heads to sleep. He snores through the night, happily dreaming of food. Age advanced by 1/4 of a day.")
+    
+    def skipday(self):
+        self.sleep -= random.randint(1,15)
+        self.happiness -= random.randint(1,15)
+        self.hunger -= random.randint(1,15)
+        self.thirst -= random.randint(1,15)
+        self.hygiene -= random.randint(1,15)
+        self.age += 1
+        print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip to the next day, advancing age by 1 day.")
+    
+    def gotowork(self):
+        self.sleep -= random.randint(1,15)
+        self.happiness -= random.randint(1,15)
+        self.hunger -= random.randint(1,15)
+        self.thirst -= random.randint(1,15)
+        self.hygiene -= random.randint(1,15)
+        self.money += 100
+        self.age += 1
+        print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip to the next day, advancing age by 1 day.")
+    
+    def murder(self):
+        self.sleep -= 10000
+        self.happiness -= 10000
+        self.hunger -= 10000
+        self.thirst -= 10000
+        self.hygiene -= 10000
+        print (f"You killed {Khaby_Lame_Mechanism.name}! How dare you! I hope you are proud of yourself you monster! GAME OVER you crazy idiot!!!")
+        quit()
 
-Khaby_Lame_Mechanism = Pet("Khaby_Lame_Mechanism", 50, 50, 50, 50, 50, 0)
+Khaby_Lame_Mechanism = Pet("Player_Name_Choice", 50, 50, 50, 50, 50, 0, 100)
 Khaby_Lame_Mechanism.name = input("You found a mechanism in a cardboard box and decide to take it home with you. What would you like to name your beautiful mechanism?")
 
 options = [
@@ -78,7 +107,10 @@ options = [
     "Feed",
     "Drink",
     "Bathe",
-    "Rest"]
+    "Rest",
+    "Skip Day"
+    "Go to Work",
+    "Murder (Quit Game)"]
 pet_state = "Not Dead"
 while pet_state == "Not Dead":
     for index, item in enumerate(options, start = 1):
@@ -99,6 +131,12 @@ while pet_state == "Not Dead":
             Khaby_Lame_Mechanism.bathe()
         elif choice == 5:
             Khaby_Lame_Mechanism.rest()
+        elif choice == 6:
+            Khaby_Lame_Mechanism.skipday()
+        elif choice == 7:
+            Khaby_Lame_Mechanism.gotowork()
+        elif choice == 8:
+            Khaby_Lame_Mechanism.murder()
         elif choice == len(options) + 1:
             choice = int(choice)
             print(Khaby_Lame_Mechanism.__dict__)
@@ -120,5 +158,5 @@ while pet_state == "Not Dead":
         print(f"{Khaby_Lame_Mechanism.name} died of diseases because you lack basic hygiene and didn't feel like bathing your mechanism. GAME OVER")
         quit()
     elif Khaby_Lame_Mechanism.sleep <= 0:
-        print(f"{Khaby_Lame_Mechanism.name} died of insomnia and sleep deprivation because you would tuck it in at bedtime. Your mechanism couldn't sleep because you weren't there! GAME OVER")
+        print(f"{Khaby_Lame_Mechanism.name} died of insomnia and sleep deprivation because you wouldn't tuck it in at bedtime. Your mechanism couldn't sleep because you weren't there! GAME OVER")
         quit()
