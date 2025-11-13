@@ -88,14 +88,9 @@ class Pet:
         self.hygiene -= random.randint(1,15)
         self.money += 100
         self.age += 1
-        print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip to the next day, advancing age by 1 day.")
+        print (f"You head out to your miserable minimum wage job, leaving {Khaby_Lame_Mechanism.name} at home by himself. You gain $100 and advance age by 1 day.")
     
     def murder(self):
-        self.sleep -= 10000
-        self.happiness -= 10000
-        self.hunger -= 10000
-        self.thirst -= 10000
-        self.hygiene -= 10000
         print (f"You killed {Khaby_Lame_Mechanism.name}! How dare you! I hope you are proud of yourself you monster! GAME OVER you crazy idiot!!!")
         quit()
 
@@ -108,7 +103,7 @@ options = [
     "Drink",
     "Bathe",
     "Rest",
-    "Skip Day"
+    "Skip Day",
     "Go to Work",
     "Murder (Quit Game)"]
 pet_state = "Not Dead"
@@ -122,21 +117,45 @@ while pet_state == "Not Dead":
     else:
         choice = int(choice)
         if choice == 1:
-            Khaby_Lame_Mechanism.play()
+            if Khaby_Lame_Mechanism.money >= 50:
+                Khaby_Lame_Mechanism.play()
+                Khaby_Lame_Mechanism.money -= 50
+            else:
+                print(f"You are missing ${50 - Khaby_Lame_Mechanism.money} to buy toys for {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 2:
-            Khaby_Lame_Mechanism.feed()
+            if Khaby_Lame_Mechanism.money >= 25:
+                Khaby_Lame_Mechanism.feed()
+                Khaby_Lame_Mechanism.money -= 25
+            else:
+                print(f"You are missing ${25 - Khaby_Lame_Mechanism.money} to buy food for {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 3:
-            Khaby_Lame_Mechanism.drink()
+            if Khaby_Lame_Mechanism.money >= 10:
+                Khaby_Lame_Mechanism.drink()
+                Khaby_Lame_Mechanism.money -= 10
+            else:
+                print(f"You are missing ${10 - Khaby_Lame_Mechanism.money} to buy water for {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 4:
-            Khaby_Lame_Mechanism.bathe()
+            if Khaby_Lame_Mechanism.money >= 25:
+                Khaby_Lame_Mechanism.bathe()
+                Khaby_Lame_Mechanism.money -= 25
+            else:
+                print(f"You are missing ${25 - Khaby_Lame_Mechanism.money} to pay for the water bill to bathe {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 5:
-            Khaby_Lame_Mechanism.rest()
+            if Khaby_Lame_Mechanism.money >= 10:
+                Khaby_Lame_Mechanism.rest()
+                Khaby_Lame_Mechanism.money -= 10
+            else:
+                print(f"You are missing ${10 - Khaby_Lame_Mechanism.money} to buy sleeping pills for {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 6:
             Khaby_Lame_Mechanism.skipday()
         elif choice == 7:
             Khaby_Lame_Mechanism.gotowork()
         elif choice == 8:
-            Khaby_Lame_Mechanism.murder()
+            if Khaby_Lame_Mechanism.money >= 100:
+                Khaby_Lame_Mechanism.murder()
+                Khaby_Lame_Mechanism.money -= 100
+            else:
+                print(f"You are missing ${100 - Khaby_Lame_Mechanism.money} to buy items to murder {Khaby_Lame_Mechanism.name}. Please consider other options instead of killing your pet, brokey.")
         elif choice == len(options) + 1:
             choice = int(choice)
             print(Khaby_Lame_Mechanism.__dict__)
