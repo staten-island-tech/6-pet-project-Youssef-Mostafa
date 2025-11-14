@@ -35,7 +35,7 @@ class Pet:
         self.money = money
 
     def play(self):
-        self.happiness += random.randint(1,6)
+        self.happiness += random.randint(1,10)
         self.hunger -= random.randint(1,6)
         self.thirst -= random.randint(1,6)
         self.hygiene -= random.randint(1,6)
@@ -44,27 +44,27 @@ class Pet:
         print (f"{Khaby_Lame_Mechanism.name} turns his hands with excitement. You throw him a ball and he runs to get it, getting himself a little dirty. Age advanced by 1/4 of a day.")
 
     def feed(self):
-        self.hunger += random.randint(1,6)
+        self.hunger += random.randint(1,10)
         self.hygiene -= random.randint(1,6)
         self.happiness += random.randint(1,2)
         self.age += 0.25
         print (f"{Khaby_Lame_Mechanism.name} speeds up his hands with to shovel food in his mouth. Your mechanism is enjoying the food, but he is a very messy eater. Age advanced by 1/4 of a day.")
 
     def drink(self):
-        self.thirst += random.randint(1,6)
+        self.thirst += random.randint(1,10)
         self.hunger -= random.randint(1,2)
         self.happiness += random.randint(1,2)
         self.age += 0.25
         print (f"{Khaby_Lame_Mechanism.name} uses his hands to quickly scoop and drink up the water in his bowl. He must have been really parched. He enjoyed the water you gave him. Age advanced by 1/4 of a day.")
 
     def bathe(self):
-        self.hygiene += random.randint(1,6)
-        self.happiness -= random.randint(1,3)
+        self.hygiene += random.randint(1,10)
+        self.happiness -= random.randint(1,5)
         self.age += 0.25
         print (f"{Khaby_Lame_Mechanism.name} jumps into the bath, turning his hands to stay above water. However, your mechanism hates baths and isn't very happy with you. Age advanced by 1/4 of a day.")
 
     def rest(self):
-        self.sleep += random.randint(1,6)
+        self.sleep += random.randint(1,10)
         self.happiness += random.randint(1,2)
         self.hunger -= random.randint(1,3)
         self.thirst -= random.randint(1,3)
@@ -166,16 +166,21 @@ while pet_state == "Not Dead":
 
     if Khaby_Lame_Mechanism.happiness <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of boredom and loneliness because you didn't feel like playing with it. GAME OVER")
+        print(f"Final Mechanism Stats: {Khaby_Lame_Mechanism.__dict__}.")
         quit()
     elif Khaby_Lame_Mechanism.hunger <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of hunger because you didn't want to hop off the game and feed your pet. GAME OVER")
+        print(f"Final Mechanism Stats: {Khaby_Lame_Mechanism.__dict__}.")
         quit()
     elif Khaby_Lame_Mechanism.thirst <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of thirst because you were too lazy scrolling on TikTok to do a simple task. GAME OVER")
+        print(f"Final Mechanism Stats: {Khaby_Lame_Mechanism.__dict__}.")
         quit()
     elif Khaby_Lame_Mechanism.hygiene <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of diseases because you lack basic hygiene and didn't feel like bathing your mechanism. GAME OVER")
+        print(f"Final Mechanism Stats: {Khaby_Lame_Mechanism.__dict__}.")
         quit()
     elif Khaby_Lame_Mechanism.sleep <= 0:
         print(f"{Khaby_Lame_Mechanism.name} died of insomnia and sleep deprivation because you wouldn't tuck it in at bedtime. Your mechanism couldn't sleep because you weren't there! GAME OVER")
+        print(f"Final Mechanism Stats: {Khaby_Lame_Mechanism.__dict__}.")
         quit()
