@@ -98,20 +98,20 @@ Khaby_Lame_Mechanism = Pet("Player_Name_Choice", 50, 50, 50, 50, 50, 0, 100)
 Khaby_Lame_Mechanism.name = input("You found a mechanism in a cardboard box and decide to take it home with you. What would you like to name your beautiful mechanism?")
 
 options = [
-    "Play",
-    "Feed",
-    "Drink",
-    "Bathe",
-    "Rest",
-    "Skip Day",
-    "Go to Work",
-    "Murder (Quit Game)"]
+    "Play ($50)",
+    "Feed ($25)",
+    "Drink ($10)",
+    "Bathe ($25)",
+    "Rest ($10)",
+    "Skip Day ($0)",
+    "Go to Work ($0)",
+    "Murder ($100/QUIT GAME)"]
 pet_state = "Not Dead"
 while pet_state == "Not Dead":
     for index, item in enumerate(options, start = 1):
         print(index, ":", item)
     print(f"{len(options) + 1 } : View Mechanism Stats")
-    choice = input(f"What would you like to do with {Khaby_Lame_Mechanism.name}? Or would you like to view {Khaby_Lame_Mechanism.name}'s stats?")
+    choice = input(f"What would you like to do with {Khaby_Lame_Mechanism.name}? Or would you like to view {Khaby_Lame_Mechanism.name}'s stats? You have ${Khaby_Lame_Mechanism.money} to spend.")
     if not choice.isdigit():
         print("Please choose a valid choice with numbers that are displayed, or else!")
     else:
