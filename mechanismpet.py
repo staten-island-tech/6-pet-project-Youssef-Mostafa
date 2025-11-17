@@ -96,7 +96,6 @@ class Pet:
 
 Khaby_Lame_Mechanism = Pet("Player_Name_Choice", 50, 50, 50, 50, 50, 0, 100)
 Khaby_Lame_Mechanism.name = input("You found a mechanism in a cardboard box and decide to take it home with you. What would you like to name your beautiful mechanism?")
-
 options = [
     "Play ($50)",
     "Feed ($25)",
