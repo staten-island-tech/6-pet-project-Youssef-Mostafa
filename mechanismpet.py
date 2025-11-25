@@ -71,14 +71,14 @@ class Pet:
         self.age += 0.25
         print (f"{Khaby_Lame_Mechanism.name} rests his weary hands and heads to sleep. He snores through the night, happily dreaming of food. Age advanced by 1/4 of a day.")
     
-    def skipday(self):
+    def skipdays(self):
         self.sleep -= random.randint(1,15)
         self.happiness -= random.randint(1,15)
         self.hunger -= random.randint(1,15)
         self.thirst -= random.randint(1,15)
         self.hygiene -= random.randint(1,15)
-        self.age += 1
-        print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip to the next day, advancing age by 1 day.")
+        self.age += 3
+        print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip the next few days because you were sleeping, advancing age by 3 days.")
     
     def gotowork(self):
         self.sleep -= random.randint(1,15)
@@ -102,7 +102,7 @@ options = [
     "Drink ($10)",
     "Bathe ($25)",
     "Rest ($10)",
-    "Skip Day ($0)",
+    "Skip Days ($0)",
     "Go to Work ($0)",
     "Murder ($100/QUIT GAME)"]
 pet_state = "Not Dead"
@@ -146,7 +146,7 @@ while pet_state == "Not Dead":
             else:
                 print(f"You are missing ${10 - Khaby_Lame_Mechanism.money} to buy sleeping pills for {Khaby_Lame_Mechanism.name}. Go to work to get more money.")
         elif choice == 6:
-            Khaby_Lame_Mechanism.skipday()
+            Khaby_Lame_Mechanism.skipdays()
         elif choice == 7:
             Khaby_Lame_Mechanism.gotowork()
         elif choice == 8:
