@@ -72,20 +72,20 @@ class Pet:
         print (f"{Khaby_Lame_Mechanism.name} rests his weary hands and heads to sleep. He snores through the night, happily dreaming of food. Age advanced by 1/4 of a day.")
     
     def skipdays(self):
-        self.sleep -= random.randint(1,15)
-        self.happiness -= random.randint(1,15)
-        self.hunger -= random.randint(1,15)
-        self.thirst -= random.randint(1,15)
-        self.hygiene -= random.randint(1,15)
+        self.sleep -= random.randint(1,20)
+        self.happiness -= random.randint(1,20)
+        self.hunger -= random.randint(1,20)
+        self.thirst -= random.randint(1,20)
+        self.hygiene -= random.randint(1,20)
         self.age += 3
         print (f"You don't do anything today and decide to let {Khaby_Lame_Mechanism.name} do whatever he wants. You skip the next few days because you were sleeping, advancing age by 3 days.")
     
     def gotowork(self):
-        self.sleep -= random.randint(1,15)
-        self.happiness -= random.randint(1,15)
-        self.hunger -= random.randint(1,15)
-        self.thirst -= random.randint(1,15)
-        self.hygiene -= random.randint(1,15)
+        self.sleep -= random.randint(1,10)
+        self.happiness -= random.randint(1,10)
+        self.hunger -= random.randint(1,10)
+        self.thirst -= random.randint(1,10)
+        self.hygiene -= random.randint(1,10)
         self.money += 100
         self.age += 1
         print (f"You head out to your miserable minimum wage job, leaving {Khaby_Lame_Mechanism.name} at home by himself. You gain $100 and advance age by 1 day.")
